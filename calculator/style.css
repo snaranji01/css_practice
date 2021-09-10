@@ -1,0 +1,51 @@
+#main {
+    
+}
+
+
+
+#calculatorContainer {
+    /*define width of calculator*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 250px;
+    
+
+}
+
+#screen {
+    border-style: solid;
+    border-bottom: 0;
+    padding: 20px;
+}
+
+#keypad {
+    /*fixed height*/
+    height: 300px;
+    /*Set to flexbox mode*/
+    display: flex;
+    /*display in a row*/
+    flex-direction: column;
+    /*Evenly space over specified height*/
+    justify-content: space-evenly;
+    
+    border-style: solid;
+    padding: 10px;
+}
+
+
+/*
+
+DEFINED IN JAVASCRIPT FILE
+
+.keyRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.numberPadKey {
+    margin: auto;
+}
+/*
