@@ -20,8 +20,6 @@ let keys = [
 console.log(keys_allrow) */
 
 
-//define event listeners
-const onClickFunction = (input) => console.log(input)
 
 
 keys.forEach((keyRow, index) => {
@@ -67,11 +65,23 @@ keysStylesToChange.forEach(keyToEdit => {
     keyToEdit.style.width = "70px"
 })
 
-// add event listener
-/* document.querySelector(".numberPadKey").addEventListener("click", event => {
-    console.log(event.target)
-})
- */
+
+// add event listener for key press input
+let screenEl = document.querySelector("#screen");
+
+console.log(
+   document.querySelectorAll(".numberPadKey") 
+)
+
+
+/* document
+    .querySelectorAll(".numberPadkey")
+    .addEventListener("click", event => {
+        console.log(event.target.innerHTML)
+        
+    }) */
+
+
 
 
 
