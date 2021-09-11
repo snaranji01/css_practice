@@ -50,6 +50,16 @@ keys.forEach((keyRow, index) => {
         keyDiv.style.textAlign = "center";
         keyDiv.style.width = "50px"
         keyDiv.style.height = "50px";
+        //add event listener
+        keyDiv.addEventListener("click", event => {
+            let screenEl = document.querySelector("#screen");
+            let keyPressed = event.target.textContent;
+            let numberKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            if (numberKeys.includes(keyPressed)) {
+                screenEl.textContent += keyPressed;
+            } 
+
+        })
     })
 })
 
@@ -64,22 +74,7 @@ let keysStylesToChange = [
 keysStylesToChange.forEach(keyToEdit => {
     keyToEdit.style.width = "70px"
 })
-
-
-// add event listener for key press input
-let screenEl = document.querySelector("#screen");
-
-console.log(
-   document.querySelectorAll(".numberPadKey") 
-)
-
-
-/* document
-    .querySelectorAll(".numberPadkey")
-    .addEventListener("click", event => {
-        console.log(event.target.innerHTML)
-        
-    }) */
+    
 
 
 
