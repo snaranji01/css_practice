@@ -9,25 +9,19 @@ let numberPadEl = document.getElementById("keypad");
 let numberPad2El = document.getElementById("keypad2");
 
 let keys = [
-    ["x2", "sqrt", "C", "/"],
-    ["7", "8", "9", "x"],
-    ["4", "5", "6", "-"],
+    ["x2", "√x", "C", "÷"],
+    ["7", "8", "9", "×"],
+    ["4", "5", "6", "−"],
     ["1", "2", "3", "+"],
     ["0", ".", "="]
 ]
-
-
-/* //define calculate from display function
-const calculate = screen_content => {
-    let input = screen_content.split("")
-} */
 
 
 //define calculator key event listener function
 const keyEventListenerFunc = event => {
     let screenEl = document.querySelector("#screen");
     let keyPressed = event.target.textContent;
-    let numberKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    let numberKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "+", "−", "×", "÷"];
     if (numberKeys.includes(keyPressed)) {
         console.log(`Pressed the ${keyPressed} key`)
         screenEl.textContent += keyPressed;
