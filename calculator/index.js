@@ -17,11 +17,25 @@ let keys = [
 ]
 
 
-//define calculate from display function
+/* //define calculate from display function
 const calculate = screen_content => {
     let input = screen_content.split("")
-}
+} */
 
+
+//define calculator key event listener function
+const keyEventListenerFunc = event => {
+    let screenEl = document.querySelector("#screen");
+    let keyPressed = event.target.textContent;
+    let numberKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+    if (numberKeys.includes(keyPressed)) {
+        console.log(`Pressed the ${keyPressed} key`)
+        screenEl.textContent += keyPressed;
+    } else if (keyPressed == "C") {
+        console.log("clear display")
+        screenEl.textContent = "";
+    } 
+}
 
 
 
@@ -58,19 +72,7 @@ keys.forEach((keyRow, index) => {
         keyDiv.style.width = "50px"
         keyDiv.style.height = "50px";
         //add event listener
-        keyDiv.addEventListener("click", event => {
-            let screenEl = document.querySelector("#screen");
-            let keyPressed = event.target.textContent;
-            let numberKeys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-            if (numberKeys.includes(keyPressed)) {
-                console.log(`Pressed the ${keyPressed} key`)
-                screenEl.textContent += keyPressed;
-            } else if (keyPressed == "C") {
-                console.log("clear display")
-                screenEl.textContent = "";
-            } 
-        }
-        )
+        keyDiv.addEventListener("click", event => keyEventListenerFunc(event) )
     })
 })
 
