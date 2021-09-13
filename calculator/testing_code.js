@@ -1,54 +1,59 @@
-let input1 = "3+3";
-let input2 = "3-3";
+let testInput1 = "3+3";
+let testInput2 = "3-3";
+let testInput3 = "4×4";
+let testInput4 = "8÷5";
 
 
+allOperators = ["+", "-", "÷", "×"];
 
-/* const calcFunc = input => {
-    const getOperator = input => {
-        allOperators = ["+", "-", "÷", "×"]
-        for (let operator of allOperators) {
-            let splitInput = input.split(operator);
-            if (!splitInput.includes("+" || "-" || "×" || "÷")) {
-                console.log(`The operator detected is ${operator}.`)
-                return operator
-            }
+const getOperator = input => {
+    let matchedOperator;
+    for (let operator of allOperators) {
+        if (input.includes(operator)) {
+            console.log(`The matched operator was ${operator}`);
+            matchedOperator = operator;
         }
     }
+    return matchedOperator;
+}
 
-    let operation = getOperator(input);
-    let valInput = input.split(operation);
-    let output = 0;
-    switch (operation) {
+const runCalculation = input => {
+    let matchedOperator = getOperator(input);
+    let output;
+    let inputSplit = input.split(matchedOperator).map(value => parseFloat(value));
+    switch (matchedOperator) {
         case "+":
-            output = parseFloat(valInput[0]) + parseFloat(valInput[1])
-            break
+            output = inputSplit[0] + inputSplit[1];
+            console.log(output);
+            return output;
+
         case "-":
-            output = parseFloat(valInput[0]) - parseFloat(valInput[1])
-            break
-        case "×":
-            output = parseFloat(valInput[0]) * parseFloat(valInput[1])
-            break
+            output = inputSplit[0] + inputSplit[1];
+            console.log(output);
+            return output;
+
         case "÷":
-            output = parseFloat(valInput[0]) / parseFloat(valInput[1])
-            break
+            output = inputSplit[0] + inputSplit[1];
+            console.log(output);
+            return output;
+
+        case "×":
+            output = inputSplit[0] + inputSplit[1];
+            console.log(output);
+            return output;
+
         default:
-            output = "No recognised operator found"
+            console.log("No matching conditions")
     }
-    console.log(output)
-} */
+}
 
 
-
-/* const func = input => {
-    if (input.includes("+")) {
-        let vals = input1.replace("+", "")
-        console.log(vals)
-        console.log(vals.includes("+" | "-" | "×" | "÷"))
-    }
-} */
+runCalculation(testInput1);
+runCalculation(testInput2);
+runCalculation(testInput3);
+runCalculation(testInput4);
 
 
-calcFunc(input2)
 
 
 
