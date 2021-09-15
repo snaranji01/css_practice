@@ -45,12 +45,22 @@ const runCalculation = input => {
 }
 
 
-runCalculation(testInput1);
+/* runCalculation(testInput1);
 runCalculation(testInput2);
 runCalculation(testInput3);
 runCalculation(testInput4);
+ */
 
 
 
+
+// can includes String method test for more than 1 matching character?
+let input5 = "√89";
+
+console.log(input5.includes("8")); //true
+console.log(input5.includes("9"));  //true
+console.log(input5.includes("89")); //true
+console.log(input5.includes("√89")) //true
+// yes
 
 
