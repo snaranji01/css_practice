@@ -1,7 +1,8 @@
 const doCalculation = input => {
-    allOperators = ["+", "−", "÷", "×", "√"];
+    allOperators = ["+", "−", "÷", "×", "√","sup"];
     let matchedOperator;
     allOperators.forEach(el => input.includes(el) ? matchedOperator = el : null);
+    
     let [splitInput, output] = ["",""];
     console.log(matchedOperator);
     switch (matchedOperator) {
@@ -36,7 +37,16 @@ const doCalculation = input => {
             console.log(output)
             break
         
+        case "sup":
+            output = input.replace("<sup>2</sup>","");
+            output = parseFloat(output);
+            output = output * output;
+            console.log(output)
+            break
+
+
         default:
+            console.log("No calculation match found.")
             break;
     }
     return output
@@ -48,9 +58,10 @@ const doCalculation = input => {
 const keyEventListenerFunc = event => {
     //reference screen element
     let screenEl = document.getElementById("screen")
-
+    
     let keyPressed = event.target.textContent;
-    console.log(keyPressed)
+    console.log(`Text content: ${keyPressed}`)
+    console.log(`InnerHTML: ${event.target.innerHTML}`)
     switch (keyPressed) {
         case "0":
         case "1":
@@ -87,9 +98,18 @@ const keyEventListenerFunc = event => {
         case "√x":
             screenEl.textContent = `√(${screenEl.textContent})`;
             break
+        
+        case "x2":
+            screenEl.innerHTML = `${screenEl.innerHTML}<sup>2</sup>`;
+            break
 
         case "=":
-            screenEl.textContent = doCalculation(screenEl.textContent)
+            if (screenEl.innerHTML.includes("sup")) {
+                screenEl.innerHTML = doCalculation(screenEl.innerHTML)
+            } else {
+                screenEl.textContent = doCalculation(screenEl.textContent)
+            }
+            
             break
 
         default:
@@ -97,7 +117,6 @@ const keyEventListenerFunc = event => {
             break;
     }
 }
-
 
 
 
